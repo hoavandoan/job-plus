@@ -12,22 +12,30 @@ function Map() {
         longitudeDelta: 0.0421,
     });
     useEffect(()=>{
-        getLocation()
+        //getLocation()
     },[])
     function getLocation() {
         Geolocation.getCurrentPosition(info => {
                 const latitude = JSON.stringify(info.coords.latitude)
-                const longitute = JSON.stringify(info.coords.longitute)
+                const longitude = JSON.stringify(info.coords.longitude)
+                const latitudeDelta = JSON.stringify(info.coords.latitudeDelta)
+                const longitudeDelta = JSON.stringify(info.coords.longitudeDelta)
                 setLocation({
                     ...location,
                     latitude,
-                    longitute
+                    longitude,
+                    latitudeDelta,
+                    longitudeDelta
                 });
-                console.log('initialPosition',location)
+                console.log('initialPosition')
             },
             error => Alert.alert(error.message),
             { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 });
-        Geolocation.setRNConfiguration({distanceFilter: 5.0})
+        Geolocation.setRNConfiguration({distanceFilter: 1.0})
+    }
+
+    const onRegionChange = (region)=>{
+        //console.log('region',region)
     }
     return (
         <View style={styles.container}>
@@ -41,6 +49,7 @@ function Map() {
                 toolbarEnabled={true}
                 zoomEnabled={true}
                 rotateEnabled={true}
+                onRegionChange={onRegionChange}
             >
             </MapView>
         </View>
