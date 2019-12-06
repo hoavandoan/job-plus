@@ -4,7 +4,7 @@ import Map from './Map';
 
 const Home = () => {
     return (
-        <View>
+        <View style={{flex: 1}}>
             <Map/>
         </View>
     );
