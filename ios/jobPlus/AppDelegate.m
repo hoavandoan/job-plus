@@ -16,7 +16,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-[GMSServices provideAPIKey:@"AIzaSyDOJaJhmh2463pZIqaFqk5CS-SPEuydV3U"];
+[GMSServices provideAPIKey:@"AIzaSyD2dCp2-yog2FvIwLZcemvExNXlkwteTOM"];
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"jobPlus"

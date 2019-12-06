@@ -7,14 +7,14 @@ import CurrentLocationButton from '../components/CurrentLocationButton';
 
 function Map() {
     const [location, setLocation] = useState({
-        latitude: '37.78825',
-        longitude: '-122.4324',
+        latitude: 21.028017,
+        longitude: 105.804059,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
     });
     const [map, setMap] = useState({});
     useEffect(() => {
-        //getLocation()
+        // getLocation()
     }, []);
 
     function getLocation() {
@@ -30,7 +30,7 @@ function Map() {
                     latitudeDelta,
                     longitudeDelta,
                 });
-                console.log('initialPosition');
+                console.log('initialPosition',latitude);
             },
             error => Alert.alert(error.message),
             {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000});
